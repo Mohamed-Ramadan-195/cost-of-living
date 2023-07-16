@@ -12,26 +12,36 @@ fun main() {
 //    val getCityHasCheapestInternetConnectionInteractor = GetCityHasCheapestInternetConnectionInteractor(dataSource)
 //    println(getCityHasCheapestInternetConnectionInteractor.execute(10))
 
-    //GetCheapestApartment
+
+    //(5)  GetTop5citiesNameThatHasFamousBrandsForClothes
+    val famousBrandsForClothes = GetTop5citiesNameThatHasFamousBrandsForClothes(dataSource)
+    val topCities = famousBrandsForClothes.execute(5)
+    print("The Top 5 Cities with Famous Brands for Clothes:")
+    printSeparationLine()
+    topCities.forEachIndexed { index, cityName ->
+        println("${index + 1}. ${cityName.capitalize()}")
+
+    }
+    printSeparationLine()
+    //(6) GetCheapestApartment
     println("Enter your Full-Time-Job salary")
     val fullTimeJobSalary = readln().toDouble()
-    val cheapestApartment = GetCheapestApartments(dataSource, fullTimeJobSalary).execute(10)
-    print("The Top 10 Apartments are... : ")
+    val cheapestApartments = GetCheapestApartments(dataSource, fullTimeJobSalary).execute(10)
+    print("The Top 10 Apartments are...")
     printSeparationLine()
-    cheapestApartment.forEach { (cityName, yearsToBuy) ->
-        println("${cityName.capitalize()} ->  $yearsToBuy years ")
+    cheapestApartments.forEachIndexed { index, (cityName, yearsToBuy) ->
+        println("${index + 1}. ${cityName.capitalize()} -> $yearsToBuy years")
+
     }
     printSeparationLine()
 
-    //GetTop10CountriesNameWithHighTaxesOnCarbonatedDrinks
-    val highTaxesOnCarbonatedDrinks = GetTop10CountriesNameWithHighTaxesOnCarbonatedDrinks(dataSource,).execute(10)
-    print("The Top 10 Countries With High Taxes On Carbonated Drinks are... : ")
+    //(9)GetTop10CountriesNameWithHighTaxesOnCarbonatedDrinks
+    val highTaxesOnCarbonatedDrinks = GetTop10CountriesNameWithHighTaxesOnCarbonatedDrinks(dataSource).execute(10)
+    print("The Top 10 Countries With High Taxes On Carbonated Drinks are...")
     printSeparationLine()
-    highTaxesOnCarbonatedDrinks
-        .forEach { (country, drinksPrices) ->
-            println("${country.capitalize()} ->  $drinksPrices USD\$ ")
-        }
-    printSeparationLine()
+    highTaxesOnCarbonatedDrinks.forEachIndexed { index, (country, drinksPrices) ->
+        println("${index + 1}. ${country.capitalize()} -> $drinksPrices USD\$")
+    }
 
 }
 private fun printSeparationLine(){
