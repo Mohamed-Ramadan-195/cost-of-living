@@ -12,7 +12,7 @@ class GetCityHasCheapestInternetConnectionInteractorTest {
 
     @BeforeAll
     fun setup() {
-        cheapestInternet = GetCityHasCheapestInternetConnectionInteractor()
+
     }
 
 
