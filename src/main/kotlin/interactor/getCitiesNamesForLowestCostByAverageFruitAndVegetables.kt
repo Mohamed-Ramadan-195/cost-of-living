@@ -15,7 +15,7 @@ class GetCitiesNamesForLowestCostByAverageFruitAndVegetables(
             .map { it.cityName }
     }
 
-    fun excludeNullAverageFruitAndNullSalaries(cityEntity: CityEntity): Boolean {
+    private fun excludeNullAverageFruitAndNullSalaries(cityEntity: CityEntity): Boolean {
         return cityEntity.fruitAndVegetablesPrices != null
                 && cityEntity.averageMonthlyNetSalaryAfterTax != null
     }
@@ -33,3 +33,17 @@ class GetCitiesNamesForLowestCostByAverageFruitAndVegetables(
         return calculateAverageFruitAndVegetables(cityEntity) / cityEntity.averageMonthlyNetSalaryAfterTax!!
     }
 }
+
+/* this is instead of the previous two functions calculateAverageFruitAndVegetables() and
+AverageFruitAndVegetablesVsAverageSalaries()   because there is an error in calculateAverageFruitAndVegetables() it should return something
+try to use the following function to solve the error
+
+private fun calculateAverageFruitAndVegetablesVsAverageSalaries(cityEntity: CityEntity): Float {
+        val fruitAndVegetablesPrices = cityEntity.fruitAndVegetablesPrices!!
+        val totalFruitAndVegetablesPrice = fruitAndVegetablesPrices.run {
+            apples1kg!! + banana1kg!! + oranges1kg!! + tomato1kg!! + potato1kg!! + onion1kg!! + lettuceOneHead!!
+        }
+        val averageFruitAndVegetablesPrice = totalFruitAndVegetablesPrice / 7f
+        return averageFruitAndVegetablesPrice / cityEntity.averageMonthlyNetSalaryAfterTax!!
+    }
+}*/
