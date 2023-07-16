@@ -26,7 +26,7 @@ class GetCitiesNamesForLowestCostByAverageFruitAndVegetables(
                              kilos.oranges1kg, kilos.tomato1kg,
                              kilos.potato1kg, kilos.onion1kg,
                             kilos.lettuceOneHead)
-
+        val total = sumList
     }
 
     fun AverageFruitAndVegetablesVsAverageSalaries(cityEntity: CityEntity): Float {
