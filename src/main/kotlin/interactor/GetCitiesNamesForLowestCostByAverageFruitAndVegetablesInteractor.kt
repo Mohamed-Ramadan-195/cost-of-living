@@ -2,7 +2,7 @@ package interactor
 
 import model.CityEntity
 
-class GetCitiesNamesForLowestCostByAverageFruitAndVegetables(
+class GetCitiesNamesForLowestCostByAverageFruitAndVegetablesInteractor(
     private val dataSource: CostOfLivingDataSource
 ) {
 
@@ -22,10 +22,11 @@ class GetCitiesNamesForLowestCostByAverageFruitAndVegetables(
 
     fun calculateAverageFruitAndVegetables(cityEntity: CityEntity): Float{
         val kilos = cityEntity.fruitAndVegetablesPrices!!
-        val totalFruitAndVegetablesPrices = kilos.run {
+
+        val total = kilos.run {
             apples1kg!! + banana1kg!! + oranges1kg!! + tomato1kg!! + potato1kg!! + onion1kg!! + lettuceOneHead!!
         }
-        return totalFruitAndVegetablesPrices / NUMBER_OF_VARIABLES
+        return total / NUMBER_OF_VARIABLES
     }
 
     fun AverageFruitAndVegetablesVsAverageSalaries(cityEntity: CityEntity): Float {
