@@ -21,16 +21,23 @@ class GetCitiesNamesForLowestCostByAverageFruitAndVegetables(
     }
 
     fun calculateAverageFruitAndVegetables(cityEntity: CityEntity): Float{
-        val kilos = cityEntity.fruitAndVegetablesPrices
+        val kilos = cityEntity.fruitAndVegetablesPrices!!
         val sumList = listOf(kilos.apples1kg, kilos.banana1kg,
                              kilos.oranges1kg, kilos.tomato1kg,
                              kilos.potato1kg, kilos.onion1kg,
                             kilos.lettuceOneHead)
-
+        val total = kilos.run {
+            apples1kg!! + banana1kg!! + oranges1kg!! + tomato1kg!! + potato1kg!! + onion1kg!! + lettuceOneHead!!
+        }
+        return total / Number_VARIABLES
     }
 
     fun AverageFruitAndVegetablesVsAverageSalaries(cityEntity: CityEntity): Float {
         return calculateAverageFruitAndVegetables(cityEntity) / cityEntity.averageMonthlyNetSalaryAfterTax!!
+    }
+
+    companion object {
+        const val Number_VARIABLES = 7
     }
 }
 
